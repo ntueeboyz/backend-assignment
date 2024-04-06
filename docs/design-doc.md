@@ -41,5 +41,5 @@ Redis is chosen as the primary data store for caching and quickly retrieving adv
 2. The unit tests might not cover all the scenarios.
 
 ## Git flow and CI/CD
-![image](../img/git.jpg)
+![image](../img/git.jpg)  
 In this project, I used GitHub Actions for CI/CD. Both unit tests and the Docker image have been integrated into the pipeline. Essentially, this follows a simple Git flow with only one long-lived branch, which is `master`. Whenever a pull request is made, the pipeline is triggered to check whether the image can be built successfully and whether the tests pass.
