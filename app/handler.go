@@ -50,69 +50,23 @@ func listAds(c *gin.Context) {
 		return
 	}
 
-	var filteredAds []Advertisement
-
-	for _, key := range keys {
-		adJSON, err := rdb.Get(ctx, key).Result()
-		if err != nil {
-			continue // Skip on error
-		}
-
-		var ad Advertisement
-		err = json.Unmarshal([]byte(adJSON), &ad)
-		if err != nil {
-			continue // Skip on error
-		}
-
-        if age != 0 && ad.Conditions.AgeStart != 0 && ad.Conditions.AgeEnd != 0 {
-            if ad.Conditions.AgeStart > age || age > ad.Conditions.AgeEnd {
-                continue
-            }
+    var ads []Advertisement
+    for _, key := range keys {
+        adJSON, err := rdb.Get(ctx, key).Result()
+        if err != nil {
+            continue // Skip on error
         }
 
-        if gender != "" && ad.Conditions.Gender != "" {
-            if string(ad.Conditions.Gender) != gender {
-                continue
-            }
+        var ad Advertisement
+        err = json.Unmarshal([]byte(adJSON), &ad)
+        if err != nil {
+            continue // Skip on error
         }
+        ads = append(ads, ad)
+    }
 
-        if country != "" && len(ad.Conditions.Country) > 0 {
-            flag := false
-            for _, c := range ad.Conditions.Country {
-                if string(c) == country {
-                    flag = true
-                    break
-                }
-            }
-            
-            if !flag {
-                continue
-            }
-        }
-
-        if platform != "" && len(ad.Conditions.Platform) > 0 {
-            flag := false
-            for _, p := range ad.Conditions.Platform {
-                if string(p) == platform {
-                    flag = true
-                    break
-                }
-            }
-            
-            if !flag {
-                continue
-            }
-        }
-
-		filteredAds = append(filteredAds, ad)
-	}
-
-	// Apply offset and limit
-	end := offset + limit
-	if end > len(filteredAds) {
-		end = len(filteredAds)
-	}
-	filteredAds = filteredAds[offset:end]
+    // Filter the advertisements based on the query parameters
+    filteredAds := FilterAds(ads, offset, limit, age, gender, country, platform)
 
 	c.JSON(http.StatusOK, gin.H{"items": filteredAds})
 }
