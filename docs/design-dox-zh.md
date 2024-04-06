@@ -43,5 +43,5 @@
 2. 單元測試可能未涵蓋所有情境。
 
 ## Git flow 及 CI/CD
-![image](../img/git.jpg)
+![image](../img/git.jpg)  
 在這個專案中，我使用了 GitHub Actions 進行 CI/CD。單元測試和建立 Docker 映像都已經整合到 CI/CD 的流程中。基本上這是一個簡單的 Git 流程，這裡只有一個長期存在的分支，那就是 master。每當有 PR（pull request）被提出時，CI/CD 的流程就會被觸發，來檢查 Docker 映像是否能夠成功建立以及測試是否通過。
