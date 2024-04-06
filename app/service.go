@@ -1,8 +1,9 @@
 package main
 
 // FilterAds filters the advertisements based on given criteria.
-func FilterAds(ads []Advertisement, offset int, limit int, age int, gender, country, platform string) []Advertisement {
-	var filteredAds []Advertisement
+func FilterAds(ads []Advertisement, offset int, limit int, age int, gender, country, platform string) []ResAd {
+	var filteredAds []ResAd
+    var responseAd ResAd
 
 	for _, ad := range ads {
 
@@ -46,7 +47,10 @@ func FilterAds(ads []Advertisement, offset int, limit int, age int, gender, coun
             }
         }
 
-		filteredAds = append(filteredAds, ad)
+        responseAd.Title = ad.Title
+        responseAd.EndAt = ad.EndAt
+
+		filteredAds = append(filteredAds, responseAd)
 	}
 
 	// Apply offset and limit

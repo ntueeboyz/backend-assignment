@@ -19,6 +19,11 @@ type Conditions struct {
 	Gender   GenderType     `json:"gender,omitempty"`
 }
 
+type ResAd struct {
+	Title      string     `json:"title"`
+	EndAt      time.Time  `json:"endAt"`
+}
+
 // PlatformType defines a type for platform enums
 type PlatformType string
 
