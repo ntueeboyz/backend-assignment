@@ -37,9 +37,10 @@ Redis is chosen as the primary data store for caching and quickly retrieving adv
 3. **Model:** The model indicates the data structure to be used for storage and retrieval.
 
 **Others:**  
-1. Since there are only two APIs in the project, the file has not been well structured.
-2. The unit tests might not cover all the scenarios.
-3. The best practice for API demo is using swagger.
+1. If the volume of API requests increases in the future, we can employ Kubernetes replicas to manage the load. However, it's important to remain vigilant about race conditions.
+2. Since there are only two APIs in the project, the file has not been well structured.
+3. The unit tests might not cover all the scenarios.
+4. The best practice for API demo is using swagger.
 
 **Diagram**  
 ![image](../img/arch.jpg)  
@@ -61,6 +62,7 @@ Redis is chosen as the primary data store for caching and quickly retrieving adv
     }
     ```
 - **GET** `/api/v1/ad`
+    **Request Example**
     ```
     /api/v1/ad?offset=10&limit=3&age=24&gender=F&country=TW&platform=ios
     ```
@@ -68,13 +70,15 @@ Redis is chosen as the primary data store for caching and quickly retrieving adv
     ```json
     {
         "items": [ 
-        {
-            "title": "AD 1",
-            "endAt": "2023-12-22T01:00:00.000Z"
-        }, {
-            "title": "AD 31",
-            "endAt": "2023-12-30T12:00:00.000Z"
-        },
+            {
+                "title": "AD 1",
+                "endAt": "2023-12-22T01:00:00.000Z"
+            }, 
+            {
+                "title": "AD 31",
+                "endAt": "2023-12-30T12:00:00.000Z"
+            },
+        ]
     }
     ```
 
