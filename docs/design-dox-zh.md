@@ -1,6 +1,13 @@
 # 設計文件
 在 Dacard 作業使用 Gin 框架作為後端服務，並使用 Redis 作為資料庫。
 
+## 概要
+- [Go-Gin 框架](#go-gin-框架)
+- [Redis 資料庫](#redis-資料庫)
+- [作業架構](#作業架構)
+- [APIs](#apis)
+- [Git flow 及 CI/CD](#git-flow-及-cicd)
+
 ## Go-Gin 框架
 在作業中我選擇了效能比較好的 HTTP 框架 Gin-Gonic。
 
@@ -49,7 +56,7 @@
 
 ## APIs
 - **POST** `/api/v1/ad`  
-    **payload example:**
+    **Payload example:**
     ```json
     {
         "title": "AD 45",
@@ -63,8 +70,8 @@
         }
     }
     ```
-- **GET** `/api/v1/ad`
-    **Request Example**
+- **GET** `/api/v1/ad`  
+    **Request Example:**
     ```
     /api/v1/ad?offset=10&limit=3&age=24&gender=F&country=TW&platform=ios
     ```

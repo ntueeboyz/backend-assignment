@@ -1,5 +1,13 @@
 # Design Document
 The project is using Gin framework for backend service and Redis for data storage.
+
+## Overview
+- [Go-Gin Framework](#go-gin-framework)
+- [Redis](#redis)
+- [High-Level Architecture](#high-level-architecture)
+- [APIs](#apis)
+- [Git flow and CI/CD](#git-flow-and-cicd)
+
 ## Go-Gin Framework
 For the web framework, we have chosen Gin-Gonic, a high-performance HTTP web framework for Go (Golang).
 
@@ -47,7 +55,7 @@ Redis is chosen as the primary data store for caching and quickly retrieving adv
 
 ## APIs
 - **POST** `/api/v1/ad`  
-    **payload example:**
+    **Payload example:**
     ```json
     {
         "title": "AD 45",
@@ -61,8 +69,8 @@ Redis is chosen as the primary data store for caching and quickly retrieving adv
         }
     }
     ```
-- **GET** `/api/v1/ad`
-    **Request Example**
+- **GET** `/api/v1/ad`  
+    **Request Example:**
     ```
     /api/v1/ad?offset=10&limit=3&age=24&gender=F&country=TW&platform=ios
     ```
