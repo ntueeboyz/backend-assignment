@@ -39,9 +39,10 @@
 3. **模型(Model)：** 模型指的是用於從資料庫存儲和檢索的資料結構。
 
 **其他：**  
-1. 由於項目中只有兩個 API，資料結構沒有像其專案有很好的分類。
-2. 單元測試可能未涵蓋所有情境。
-3. 可以整合 Swagger 更好的呈現 API
+1. 如果之後 API 請求量增大可以使用 k8s replica 來處理，但須注意 race conditions。
+2. 由於項目中只有兩個 API，資料結構沒有像其專案有很好的分類。
+3. 單元測試可能未涵蓋所有情境。
+4. 可以整合 Swagger 更好的呈現 API。
 
 **Diagram**  
 ![image](../img/arch.jpg)  
@@ -63,6 +64,7 @@
     }
     ```
 - **GET** `/api/v1/ad`
+    **Request Example**
     ```
     /api/v1/ad?offset=10&limit=3&age=24&gender=F&country=TW&platform=ios
     ```
@@ -70,13 +72,15 @@
     ```json
     {
         "items": [ 
-        {
-            "title": "AD 1",
-            "endAt": "2023-12-22T01:00:00.000Z"
-        }, {
-            "title": "AD 31",
-            "endAt": "2023-12-30T12:00:00.000Z"
-        },
+            {
+                "title": "AD 1",
+                "endAt": "2023-12-22T01:00:00.000Z"
+            }, 
+            {
+                "title": "AD 31",
+                "endAt": "2023-12-30T12:00:00.000Z"
+            },
+        ]
     }
     ```
 
