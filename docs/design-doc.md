@@ -39,6 +39,44 @@ Redis is chosen as the primary data store for caching and quickly retrieving adv
 **Others:**  
 1. Since there are only two APIs in the project, the file has not been well structured.
 2. The unit tests might not cover all the scenarios.
+3. The best practice for API demo is using swagger.
+
+**Diagram**  
+![image](../img/arch.jpg)  
+
+## APIs
+- **POST** `/api/v1/ad`  
+    **payload example:**
+    ```json
+    {
+        "title": "AD 45",
+        "startAt": "2023-12-10T03:00:00.000Z", 
+        "endAt": "2023-12-31T16:00:00.000Z", 
+        "conditions": {
+            "ageStart": 15,
+            "ageEnd": 30,
+            "country": ["JP", "KR"], 
+            "platform": ["web"]
+        }
+    }
+    ```
+- **GET** `/api/v1/ad`
+    ```
+    /api/v1/ad?offset=10&limit=3&age=24&gender=F&country=TW&platform=ios
+    ```
+    **Response Example:**
+    ```json
+    {
+        "items": [ 
+        {
+            "title": "AD 1",
+            "endAt": "2023-12-22T01:00:00.000Z"
+        }, {
+            "title": "AD 31",
+            "endAt": "2023-12-30T12:00:00.000Z"
+        },
+    }
+    ```
 
 ## Git flow and CI/CD
 ![image](../img/git.jpg)  
