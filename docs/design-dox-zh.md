@@ -49,7 +49,7 @@
 
 ## APIs
 - **POST** `/api/v1/ad`  
-    **payload example:**
+    **Payload example:**
     ```json
     {
         "title": "AD 45",

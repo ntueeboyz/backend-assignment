@@ -47,7 +47,7 @@ Redis is chosen as the primary data store for caching and quickly retrieving adv
 
 ## APIs
 - **POST** `/api/v1/ad`  
-    **payload example:**
+    **Payload example:**
     ```json
     {
         "title": "AD 45",
