@@ -61,8 +61,8 @@ Redis is chosen as the primary data store for caching and quickly retrieving adv
         }
     }
     ```
-- **GET** `/api/v1/ad`
-    **Request Example**
+- **GET** `/api/v1/ad`  
+    **Request Example:**
     ```
     /api/v1/ad?offset=10&limit=3&age=24&gender=F&country=TW&platform=ios
     ```
