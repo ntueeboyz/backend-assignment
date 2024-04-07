@@ -2,12 +2,15 @@ package main
 
 import (
 	"testing"
+	"time"
 )
 
 // mockAdvertisement creates a mock advertisement for testing purposes.
 func mockAdvertisement(title string, ageStart, ageEnd int, gender GenderType, country []ISO3166, platform []PlatformType) Advertisement {
 	return Advertisement{
 		Title: title,
+		StartAt: time.Now().Add(-time.Hour * 24),
+		EndAt:   time.Now().Add(time.Hour * 24),
 		Conditions: Conditions{
 			AgeStart: ageStart,
 			AgeEnd:   ageEnd,

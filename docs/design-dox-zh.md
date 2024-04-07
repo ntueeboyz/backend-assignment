@@ -35,12 +35,50 @@
 ```
 
 1. **控制器(Controller)：** `handler.go` 基本上是處理傳入請求並向客戶端返回響應的控制器。
-2. **服務(Service)：**服務提供處理資料的基本功能，例如篩選。這個作業中的服務是指 service.go。
+2. **服務(Service)：** 服務提供處理資料的基本功能，例如篩選。這個作業中的服務是指 service.go。
 3. **模型(Model)：** 模型指的是用於從資料庫存儲和檢索的資料結構。
 
 **其他：**  
 1. 由於項目中只有兩個 API，資料結構沒有像其專案有很好的分類。
 2. 單元測試可能未涵蓋所有情境。
+3. 可以整合 Swagger 更好的呈現 API
+
+**Diagram**  
+![image](../img/arch.jpg)  
+
+## APIs
+- **POST** `/api/v1/ad`  
+    **payload example:**
+    ```json
+    {
+        "title": "AD 45",
+        "startAt": "2023-12-10T03:00:00.000Z", 
+        "endAt": "2023-12-31T16:00:00.000Z", 
+        "conditions": {
+            "ageStart": 15,
+            "ageEnd": 30,
+            "country": ["JP", "KR"], 
+            "platform": ["web"]
+        }
+    }
+    ```
+- **GET** `/api/v1/ad`
+    ```
+    /api/v1/ad?offset=10&limit=3&age=24&gender=F&country=TW&platform=ios
+    ```
+    **Response Example:**
+    ```json
+    {
+        "items": [ 
+        {
+            "title": "AD 1",
+            "endAt": "2023-12-22T01:00:00.000Z"
+        }, {
+            "title": "AD 31",
+            "endAt": "2023-12-30T12:00:00.000Z"
+        },
+    }
+    ```
 
 ## Git flow 及 CI/CD
 ![image](../img/git.jpg)  

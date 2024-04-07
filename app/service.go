@@ -1,24 +1,35 @@
 package main
 
+import "time"
+
 // FilterAds filters the advertisements based on given criteria.
 func FilterAds(ads []Advertisement, offset int, limit int, age int, gender, country, platform string) []ResAd {
 	var filteredAds []ResAd
     var responseAd ResAd
+    now := time.Now()
 
 	for _, ad := range ads {
 
+        // Check if the advertisement is active
+        if now.Before(ad.StartAt) || now.After(ad.EndAt) {
+			continue
+		}
+
+        // Check if the advertisement meets the age criteria
         if age != 0 {
             if ad.Conditions.AgeStart > age || age > ad.Conditions.AgeEnd && (ad.Conditions.AgeStart != 0 && ad.Conditions.AgeEnd != 0) {
                 continue
             }
         }
 
+        // Check if the advertisement meets the gender criteria
         if gender != "" {
             if string(ad.Conditions.Gender) != gender && ad.Conditions.Gender != "" {
                 continue
             }
         }
 
+        // check if the advertisement meets the country and platform criteria
         if country != "" {
             flag := false
             for _, c := range ad.Conditions.Country {
