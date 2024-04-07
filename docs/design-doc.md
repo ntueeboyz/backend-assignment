@@ -33,7 +33,7 @@ Redis is chosen as the primary data store for caching and quickly retrieving adv
 └─ go.sum
 ```
 1. **Controller:** The `handler.go` basically is the controller to handle the imcoming request and to return the response to client.
-2. **Service*:** The services provide the fundamental function to process the data. The service in this project is `service.go`.
+2. **Service:** The services provide the fundamental function to process the data. The service in this project is `service.go`.
 3. **Model:** The model indicates the data structure to be used for storage and retrieval.
 
 **Others:**  
