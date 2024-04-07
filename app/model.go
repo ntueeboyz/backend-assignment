@@ -48,10 +48,21 @@ type ISO3166 string
 
 // Define constants for ISO 3166-1 alpha-2 country codes
 const (
-    CountryUSA ISO3166 = "US"
-    CountryCanada ISO3166 = "CA"
-    CountryJapan ISO3166 = "JP"
-    CountrySouthKorea ISO3166 = "KR"
-	CountryTaiwan ISO3166 = "TW"
+    CountryUSA           ISO3166 = "US"
+    CountryCanada        ISO3166 = "CA"
+    CountryJapan         ISO3166 = "JP"
+    CountrySouthKorea    ISO3166 = "KR"
+	CountryTaiwan        ISO3166 = "TW"
+	CountryUnitedKingdom ISO3166 = "GB"
+    CountryAustralia     ISO3166 = "AU"
+    CountryGermany       ISO3166 = "DE"
+    CountryFrance        ISO3166 = "FR"
+    CountryItaly         ISO3166 = "IT"
+    CountrySpain         ISO3166 = "ES"
+    CountryIndia         ISO3166 = "IN"
+    CountryBrazil        ISO3166 = "BR"
+    CountryMexico        ISO3166 = "MX"
+    CountryRussia        ISO3166 = "RU"
+    CountryChina         ISO3166 = "CN"
     // Add more countries as needed
 )
