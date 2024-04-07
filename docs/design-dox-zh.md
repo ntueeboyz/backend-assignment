@@ -1,6 +1,13 @@
 # 設計文件
 在 Dacard 作業使用 Gin 框架作為後端服務，並使用 Redis 作為資料庫。
 
+## 概要
+- [Go-Gin 框架](#go-gin-框架)
+- [Redis 資料庫](#redis-資料庫)
+- [作業架構](#作業架構)
+- [APIs](#apis)
+- [Git flow 及 CI/CD](#git-flow-及-cicd)
+
 ## Go-Gin 框架
 在作業中我選擇了效能比較好的 HTTP 框架 Gin-Gonic。
 

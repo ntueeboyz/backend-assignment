@@ -1,5 +1,13 @@
 # Design Document
 The project is using Gin framework for backend service and Redis for data storage.
+
+## Overview
+- [Go-Gin Framework](#go-gin-framework)
+- [Redis](#redis)
+- [High-Level Architecture](#high-level-architecture)
+- [APIs](#apis)
+- [Git flow and CI/CD](#git-flow-and-cicd)
+
 ## Go-Gin Framework
 For the web framework, we have chosen Gin-Gonic, a high-performance HTTP web framework for Go (Golang).
 
