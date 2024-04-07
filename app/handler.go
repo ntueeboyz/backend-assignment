@@ -37,7 +37,7 @@ func createAd(c *gin.Context) {
 func listAds(c *gin.Context) {
     // Parse query parameters
 	offset, _ := strconv.Atoi(c.DefaultQuery("offset", "0"))
-	limit, _ := strconv.Atoi(c.DefaultQuery("limit", "100"))
+	limit, _ := strconv.Atoi(c.DefaultQuery("limit", "5"))
 	age, _ := strconv.Atoi(c.Query("age"))
 	gender := c.Query("gender")
 	country := c.Query("country")
